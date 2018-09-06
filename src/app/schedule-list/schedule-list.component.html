@@ -1,0 +1,25 @@
+<table mat-table [dataSource]="schedules" class="full-width">
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element" [matTooltip]="element.url"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="planLabel">
+        <th mat-header-cell *matHeaderCellDef> Plan </th>
+        <td mat-cell *matCellDef="let element"> {{element.planLabel}} </td>
+    </ng-container>
+    <ng-container matColumnDef="active">
+        <th mat-header-cell *matHeaderCellDef> Active </th>
+        <td mat-cell *matCellDef="let element; let index = index">
+            <mat-slide-toggle color="accent" [ngModel]="element.active" (ngModelChange)="activeToggle(index)"></mat-slide-toggle>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef> Delete</th>
+        <td mat-cell *matCellDef="let element; let index = index">
+            <button mat-icon-button (click)="delete(index)"><mat-icon>delete</mat-icon></button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

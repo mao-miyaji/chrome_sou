@@ -1,5 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
 body {
     width: 400px;
     height: 400px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.content {
+    height: 344px;
+    overflow: scroll;
 }

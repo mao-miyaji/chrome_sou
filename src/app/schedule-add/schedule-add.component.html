@@ -1,0 +1,35 @@
+<form #addForm="ngForm">
+    <mat-card [style.padding]="'20px 16px'">
+        <mat-card-content>
+            <mat-form-field class="full-width">
+                <input matInput type="text" name="name" placeholder="Name" [(ngModel)]="formData.name" required>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput type="text" name="url" placeholder="Url" [(ngModel)]="formData.url" required>
+            </mat-form-field>
+            <div [style.margin]="'10px 0'">
+                <p>Days *</p>
+                <ng-container *ngFor="let day of weekdays; let i = index">
+                    <mat-checkbox (click)="$event.stopPropagation()"
+                                    (change)="$event ? toggleDays(i) : null"
+                                    [checked]="checkedDays(i)">
+                    </mat-checkbox>
+                    <span [style.margin-right.px]="5">{{day}}</span>
+                </ng-container>
+            </div>
+            <mat-form-field>
+                <mat-select name="hour" placeholder="Hour" [(ngModel)]="formData.hour" required>
+                    <mat-option *ngFor="let n of 24 | range; index as i" [value]="i">{{i}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select name="min" placeholder="Minute" [(ngModel)]="formData.min" required>
+                    <mat-option *ngFor="let n of 60 | range; index as i" [value]="i">{{i}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions [style.margin-bottom]="0">
+            <button mat-raised-button type="submit" (click)="submit()" [disabled]="addForm.invalid || !formDaysValid">Add</button>
+        </mat-card-actions>
+    </mat-card>
+</form>
