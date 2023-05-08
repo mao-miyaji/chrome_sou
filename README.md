@@ -5,12 +5,11 @@ ChromeExtensions Scheduled Open Url
 
 ## Requirement
 
+![angular version](https://img.shields.io/badge/angular-6.1.7-brightgreen)
+![angular-cli version](https://img.shields.io/badge/angular%2Fcli%20-6.1.5-brightgreen)
+
 * Google Chrome
 * Google Chrome LocalStorage
-
-以下は開発時に使用
-* Angular v6.1.7
-* angular/cli v6.1.5
 
 ## Usage
 
